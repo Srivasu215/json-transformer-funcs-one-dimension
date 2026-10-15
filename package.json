@@ -1,0 +1,38 @@
+{
+  "name": "json-transformer-funcs-one-dimension",
+  "version": "1.0.0",
+  "description": "One-dimensional linear collection template mapper for json-transformer-funcs",
+  "main": "./src/index.js",
+  "module": "./src/index.js",
+  "type": "module",
+  "exports": {
+    ".": {
+      "import": "./src/index.js",
+      "default": "./src/index.js"
+    }
+  },
+  "files": [
+    "src",
+    "index.js",
+    "README.md"
+  ],
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/keshavsoft/json-transformer-funcs-one-dimension.git"
+  },
+  "keywords": [
+    "json-transformer-funcs",
+    "one-dimension",
+    "collection",
+    "fromCollection"
+  ],
+  "dependencies": {
+    "json-transformer-funcs-primitive": "^1.0.0"
+  },
+  "author": "KeshavSoft",
+  "license": "MIT",
+  "bugs": {
+    "url": "https://github.com/keshavsoft/json-transformer-funcs-one-dimension/issues"
+  },
+  "homepage": "https://github.com/keshavsoft/json-transformer-funcs-one-dimension#readme"
+}
