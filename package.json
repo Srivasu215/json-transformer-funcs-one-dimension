@@ -1,6 +1,6 @@
 {
   "name": "json-transformer-funcs-one-dimension",
-  "version": "1.4.1",
+  "version": "1.4.2",
   "description": "One-dimensional linear collection template mapper for json-transformer-funcs",
   "main": "./src/index.js",
   "module": "./src/index.js",
@@ -26,7 +26,7 @@
     "fromCollection"
   ],
   "dependencies": {
-    "json-transformer-funcs-primitive": "file:../json-transformer-funcs-primitive"
+    "json-transformer-funcs-primitive": "^1.0.0"
   },
   "author": "KeshavSoft",
   "license": "MIT",
