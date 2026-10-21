@@ -1,0 +1,11 @@
+[
+    {
+        "columnName": "itemName"
+    },
+    {
+        "columnName": "baseUnit"
+    },
+    {
+        "columnName": "batches"
+    }
+]
