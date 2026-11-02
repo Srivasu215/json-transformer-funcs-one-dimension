@@ -1,0 +1,26 @@
+{
+    "tagName": "div",
+    "attributes": {
+        "class": "mb-3"
+    },
+    "children": [
+        {
+            "tagName": "label",
+            "attributes": {
+                "for": "formGroupExampleInput",
+                "class": "form-label"
+            },
+            "textContent": "${columnName}"
+        },
+        {
+            "tagName": "input",
+            "attributes": {
+                "type": "text",
+                "class": "form-control",
+                "id": "${columnName}-id",
+                "name": "${columnName}",
+                "placeholder": "enter ${columnName}"
+            }
+        }
+    ]
+}
