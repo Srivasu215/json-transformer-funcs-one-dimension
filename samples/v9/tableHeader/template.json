@@ -1,0 +1,4 @@
+{
+    "tagName": "th",
+    "textContent": "${columnName}"
+}
