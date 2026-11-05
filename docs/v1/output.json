@@ -1,0 +1,28 @@
+[
+  {
+    "tagName": "input",
+    "attributes": {
+      "type": "text",
+      "placeholder": "enter itemName",
+      "name": "itemName",
+      "id": "itemName",
+      "list": "itemName",
+      "class": "form-control"
+    }
+  },
+  {
+    "tagName": "button",
+    "textContent": "baseUnit",
+    "attributes": {
+      "class": "btn btn-primary btn-sm"
+    }
+  },
+  {
+    "tagName": "tr",
+    "attributes": {
+      "class": "align-middle"
+    },
+    "children": []
+  }
+]
+
