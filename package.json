@@ -1,6 +1,6 @@
 {
   "name": "json-transformer-funcs-one-dimension",
-  "version": "1.9.6",
+  "version": "1.9.7",
   "description": "One-dimensional linear collection template mapper for json-transformer-funcs",
   "main": "./src/index.js",
   "module": "./src/index.js",
