@@ -1,5 +1,5 @@
 import { models, activateTab } from "../monacoEditor/index.js";
-import loopWithIndividualTemplate from "../../../../src/index.js";
+import loopWithIndividualTemplate from "../../../../docs/dist/v9/min.js";
 
 const clickFunc = async () => {
     // User will write build code here
