@@ -1,27 +1,16 @@
-import actions from "./actions.js";
+import { bindEvents } from "https://keshavsoft.github.io/dom-primitive-bindings/dist/v4/min.js";
 import bindings from "../../bindings.json" with { type: "json" };
+import actions from "./actions.js";
 
 export const initBindings = (container = document.body) => {
-    // Group instructions by event type (e.g., 'click')
-    const eventTypes = [...new Set(bindings.map((b) => b.event))];
+    const configuredBindings = bindings.map((binding) => ({
+        ...binding,
+        onExtract: (result, event, matchElement) => {
+            actions[binding.action]?.(event, matchElement);
+        }
+    }));
 
-    for (const eventType of eventTypes) {
-        container.addEventListener(eventType, (event) => {
-            for (const binding of bindings) {
-                if (binding.event !== eventType) continue;
-
-                const matchElement = event.target.closest(binding.selector);
-                if (matchElement) {
-                    const actionFn = actions[binding.action];
-                    if (typeof actionFn === "function") {
-                        actionFn(event, matchElement);
-                    }
-                    break;
-                }
-            }
-        });
-    }
+    bindEvents(container, configuredBindings);
 };
 
 export default initBindings;
-
