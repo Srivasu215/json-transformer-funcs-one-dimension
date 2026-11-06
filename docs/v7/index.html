@@ -30,6 +30,10 @@
                 <i class="bi bi-filetype-json text-warning"></i>
                 <span>template.json</span>
             </button>
+            <button class="tab-item" id="tabOutput" type="button" title="View Output JSON">
+                <i class="bi bi-check2-circle text-success"></i>
+                <span>output.json</span>
+            </button>
         </div>
 
         <div class="tab-actions">
@@ -45,22 +49,9 @@
                 <i class="bi bi-filetype-json"></i>
                 <span>template</span>
             </button>
-
-            <div class="d-flex align-items-center gap-2">
-                <label for="targetSelect"
-                    class="text-secondary small fw-semibold text-nowrap d-flex align-items-center gap-1 mb-0"
-                    style="font-size: 11px;">
-                    <i class="bi bi-bullseye text-warning"></i>
-                    <span>Target:</span>
-                </label>
-                <select id="targetSelect" class="form-select form-select-sm text-light border-secondary"
-                    style="background-color: #2d2d2d; font-size: 12px; height: 28px; padding-top: 2px; padding-bottom: 2px; min-width: 170px;">
-                    <option value="renderOutput" selected>#renderOutput (Root Stage)</option>
-                </select>
-            </div>
-            <button class="action-btn" id="renderBtn" type="button" title="Build & Render into Right Stage">
+            <button class="action-btn" id="buildBtn" type="button" title="Build & Show Output JSON">
                 <i class="bi bi-play-fill"></i>
-                <span>render</span>
+                <span>build</span>
             </button>
         </div>
     </div>
@@ -73,12 +64,27 @@
         <!-- Right 50%: Live DOM Rendering Stage -->
         <div class="preview-pane">
             <div class="preview-header">
-                <div class="d-flex align-items-center gap-2">
+                <div class="d-flex align-items-center gap-2 text-nowrap">
                     <i class="bi bi-display text-primary"></i>
-                    <span class="fw-semibold text-dark small">Live Render Stage</span>
+                    <span class="fw-semibold text-dark small text-nowrap">Live Render Stage</span>
                 </div>
-                <span class="badge bg-success-subtle text-success border border-success-subtle small">1D Interactive
-                    DOM</span>
+
+                <div class="d-flex align-items-center gap-2">
+                    <label for="targetSelect"
+                        class="text-secondary small fw-semibold text-nowrap d-flex align-items-center gap-1 mb-0"
+                        style="font-size: 11px;">
+                        <i class="bi bi-bullseye text-warning"></i>
+                        <span>Target:</span>
+                    </label>
+                    <select id="targetSelect" class="form-select form-select-sm text-light border-secondary"
+                        style="background-color: #2d2d2d; font-size: 12px; height: 28px; padding-top: 2px; padding-bottom: 2px; min-width: 170px;">
+                        <option value="renderOutput" selected>#renderOutput (Root Stage)</option>
+                    </select>
+                    <button class="action-btn" id="renderBtn" type="button" title="Build & Render into Right Stage">
+                        <i class="bi bi-play-fill"></i>
+                        <span>render</span>
+                    </button>
+                </div>
             </div>
             <div class="preview-body">
                 <div id="renderOutput" class="stage-card">

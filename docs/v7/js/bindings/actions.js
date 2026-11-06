@@ -32,57 +32,6 @@ function renderAstToDom(node) {
     return el;
 }
 
-function mountSpecToStage(spec) {
-    const stage = document.getElementById("renderOutput");
-    if (!stage) return;
-
-    stage.innerHTML = "";
-
-    if (Array.isArray(spec)) {
-        const firstTag = spec[0]?.tagName?.toLowerCase();
-
-        // If elements are table cells (th, td), mount inside a styled table shell
-        if (firstTag === "th" || firstTag === "td") {
-            const tableWrapper = document.createElement("table");
-            tableWrapper.className = "table table-striped table-hover table-bordered shadow-sm bg-white mb-0";
-            const thead = document.createElement("thead");
-            thead.className = "table-dark";
-            const tr = document.createElement("tr");
-
-            spec.forEach(item => {
-                const domNode = renderAstToDom(item);
-                if (domNode) tr.appendChild(domNode);
-            });
-
-            thead.appendChild(tr);
-            tableWrapper.appendChild(thead);
-            stage.appendChild(tableWrapper);
-        } else if (firstTag === "option") {
-            const selectWrapper = document.createElement("select");
-            selectWrapper.className = "form-select shadow-sm";
-            selectWrapper.size = Math.min(Math.max(spec.length, 3), 8);
-
-            spec.forEach(item => {
-                const domNode = renderAstToDom(item);
-                if (domNode) selectWrapper.appendChild(domNode);
-            });
-            stage.appendChild(selectWrapper);
-        } else {
-            const listWrapper = document.createElement("div");
-            listWrapper.className = "d-flex flex-wrap gap-2";
-
-            spec.forEach(item => {
-                const domNode = renderAstToDom(item);
-                if (domNode) listWrapper.appendChild(domNode);
-            });
-            stage.appendChild(listWrapper);
-        }
-    } else if (spec && typeof spec === "object") {
-        const domNode = renderAstToDom(spec);
-        if (domNode) stage.appendChild(domNode);
-    }
-};
-
 function updateTargetDropdown() {
     const stage = document.getElementById("renderOutput");
     const targetSelect = document.getElementById("targetSelect");
@@ -146,7 +95,7 @@ export const actions = {
         try {
             const raw = editor.getValue();
             const parsed = JSON.parse(raw);
-            console.log("parsed : ", parsed);
+            // console.log("parsed : ", parsed);
 
             window.ks.jsonToDom.appendToDom({
                 jsonSpec: parsed, targetHtmlId: "renderOutput",
@@ -193,7 +142,22 @@ export const actions = {
         activateTab("tabOutput", models.output);
 
         // 🎯 Mount rendered 1D collection into the right 50% stage
-        mountSpecToStage(spec);
+        const raw = editor.getValue();
+        const parsed = JSON.parse(raw);
+
+        const targetSelect = document.getElementById("targetSelect");
+        // if (!stage || !targetSelect) return;
+
+        const targetHtmlId = targetSelect.value || "renderOutput";
+
+        window.ks.jsonToDom.appendToDom({
+            jsonSpec: parsed, targetHtmlId,
+            appendPosition: "replace", showLog: false
+        });
+
+        // 🎯 Harvest all IDs inside the right render tab and populate the dropdown
+        updateTargetDropdown();
+
     },
 
     showTabColumns: () => {
