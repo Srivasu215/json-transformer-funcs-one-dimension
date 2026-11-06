@@ -39,11 +39,21 @@ var l = (e, t) => {
 	for (let t = 0; t < e.length; t++) if (!e[t] || typeof e[t] != "object") throw TypeError(`inSource[${t}] must be an object`);
 	if (!t || typeof t != "object" && typeof t != "string") throw TypeError("inTemplate must be an object or string");
 	return !0;
-}, u = (e, t) => {
+}, u = {
+	name: "dom-primitive-bindings",
+	version: "5.0.0"
+}, d = (e, t) => {
+	if (typeof globalThis < "u") return globalThis.ks ??= {}, globalThis.ks.transformer ??= {}, globalThis.ks.transformer.funcs ??= {}, globalThis.ks.transformer.funcs.oneDimension = {
+		meta: u,
+		individualTemplate: e,
+		template: t
+	}, globalThis.ks.transformer.funcs.oneDimension;
+}, f = (e, t) => {
 	let n = e, r = t;
 	return l(n, r), n.map((e) => c(e, r));
-}, d = (e, t) => {
+}, p = (e, t) => {
 	let n = e;
 	return l(n, t), n.map((e) => c(e, e[t]));
 };
-export { u as default, d as loopWithIndividualTemplate };
+d(p, f);
+export { f as default, p as loopWithIndividualTemplate };

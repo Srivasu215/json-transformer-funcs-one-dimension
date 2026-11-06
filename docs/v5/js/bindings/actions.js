@@ -1,5 +1,5 @@
 import { models, activateTab } from "../monacoEditor/index.js";
-import loopWithIndividualTemplate from "../../../dist/v9/min.js";
+import loopWithIndividualTemplate from "https://keshavsoft.github.io/json-transformer-funcs-one-dimension/dist/v9/min.js";
 
 export const actions = {
     loadRaka: async () => {
@@ -23,7 +23,7 @@ export const actions = {
         const template = JSON.parse(models.template.getValue());
 
         const spec = loopWithIndividualTemplate(columns, template);
-        console.log("spec : ", spec);
+        console.log("spec---------- : ", spec);
 
         models.output.setValue(JSON.stringify(spec, null, 2));
         activateTab("tabOutput", models.output);
