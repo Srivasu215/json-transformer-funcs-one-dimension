@@ -1,102 +1,75 @@
 # json-transformer-funcs-one-dimension
 
-> One element template. Many data objects. A clean, predictable array of resolved JSON element trees.
+> **The Conveyor Belt.** Takes an array of data items on the conveyor and stamps out a continuous stream of resolved JSON AST element nodes.
 
-[![npm version](https://img.shields.io/npm/v/json-transformer-funcs-one-dimension.svg?style=flat-square)](https://www.npmjs.com/package/json-transformer-funcs-one-dimension)
-[![License: MIT](https://img.shields.io/badge/License-MIT-yellow.svg?style=flat-square)](https://opensource.org/licenses/MIT)
-[![GitHub Pages](https://img.shields.io/badge/Docs-GitHub%20Pages-success.svg?style=flat-square)](https://keshavsoft.github.io/json-transformer-funcs-one-dimension/)
-
----
-
-## 🌐 Live Documentation & Interactive Playground
-
-Explore the complete interactive story and live Monaco Editor playgrounds on **[GitHub Pages](https://keshavsoft.github.io/json-transformer-funcs-one-dimension/)**:
-
-1. **[The Story & Architecture](https://keshavsoft.github.io/json-transformer-funcs-one-dimension/)** ([local](./docs/index.html))  
-   What the One-Dimensional Collection Engine is, how it fits into the declarative UI rendering pipeline, and the mathematical formula behind it.
-2. **[5 Generations of the Playground](https://keshavsoft.github.io/json-transformer-funcs-one-dimension/versions.html)** ([local](./docs/versions.html))  
-   Follow the architectural evolution of our full-screen Monaco Editor workspace across 5 milestones:
-   - **[v1: Modular Handlers](https://keshavsoft.github.io/json-transformer-funcs-one-dimension/v1/)** ([local](./docs/v1/index.html)) — Individual folders per button (`rakaBtn/`, `templateBtn/`, `buildBtn/`) attaching imperative `addEventListener` hooks.
-   - **[v2: Instruction Bindings](https://keshavsoft.github.io/json-transformer-funcs-one-dimension/v2/)** ([local](./docs/v2/index.html)) — Disappeared all button folders! Introduced `bindings.json` and `actions.js` with a central container event delegation loop.
-   - **[v3: CDN Delegation (v4)](https://keshavsoft.github.io/json-transformer-funcs-one-dimension/v3/)** ([local](./docs/v3/index.html)) — Vanished the local loop! Consumes `bindEvents` directly from the `dom-primitive-bindings` CDN build (`dist/v4/min.js`).
-   - **[v4: CDN Delegation (v5)](https://keshavsoft.github.io/json-transformer-funcs-one-dimension/v4/)** ([local](./docs/v4/index.html)) — Upgraded to the hardened `dist/v5/min.js` CDN distribution.
-   - **[v5: Production Current](https://keshavsoft.github.io/json-transformer-funcs-one-dimension/v5/)** ([local](./docs/v5/index.html)) — Full production playground with Monaco Editor, synchronized JSON models, and zero wiring boilerplate.
-3. **[Architecture Guide](https://keshavsoft.github.io/json-transformer-funcs-one-dimension/architecture.html)** ([local](./docs/architecture.html))  
-   Deep dive into linear collection template mapping and boundary responsibilities.
+[![npm version](https://img.shields.io/npm/v/json-transformer-funcs-one-dimension.svg?color=cb3837&logo=npm)](https://www.npmjs.com/package/json-transformer-funcs-one-dimension)
+[![Documentation Portal](https://img.shields.io/badge/Docs-GitHub%20Pages-blue.svg)](https://keshavsoft.github.io/json-transformer-funcs-one-dimension/)
+[![Monaco Studio v1](https://img.shields.io/badge/Monaco%20Studio-v1%20Live-brightgreen.svg)](https://keshavsoft.github.io/json-transformer-funcs-one-dimension/monaco/v1/)
+[![License: MIT](https://img.shields.io/badge/License-MIT-yellow.svg)](LICENSE)
+[![Dependencies](https://img.shields.io/badge/dependencies-0-brightgreen.svg)]()
 
 ---
 
-## 🎯 The Philosophy: Where This Engine Fits
+## 🌐 Quick Links & Interactive Demos
 
-The **KeshavSoft JSON Transformer** family provides a 3-tier declarative architecture for generating DOM representations from JSON:
+| Resource / Hub | Direct Link | Description |
+|---|---|---|
+| 📦 **npm Package** | [`npm/json-transformer-funcs-one-dimension`](https://www.npmjs.com/package/json-transformer-funcs-one-dimension) | Official npm registry distribution |
+| 📖 **The Story (Documentation)** | [Online Docs Portal](https://keshavsoft.github.io/json-transformer-funcs-one-dimension/) / [`docs/`](./docs/index.html) | Mental model, pipeline architecture & token guides |
+| 🕹️ **Monaco Workspaces Hub** | [Monaco Hub](https://keshavsoft.github.io/json-transformer-funcs-one-dimension/monaco/) / [`docs/monaco/`](./docs/monaco/index.html) | Directory of full-screen Monaco Editor studios |
+| 🚀 **Modern Monaco Studio v1** | [Launch Studio v1](https://keshavsoft.github.io/json-transformer-funcs-one-dimension/monaco/v1/) / [`docs/monaco/v1/`](./docs/monaco/v1/index.html) | 50/50 Dual-Pane Studio with dynamic target container injection |
+| 🏗️ **Architecture Guide** | [Architecture Deep-Dive](https://keshavsoft.github.io/json-transformer-funcs-one-dimension/architecture.html) / [`docs/architecture`](./docs/architecture.html) | Formal mathematical cardinality of 1D linear mapping |
+| 📜 **Historical Versions Hub** | [Generations Hub (v1–v9)](https://keshavsoft.github.io/json-transformer-funcs-one-dimension/versions.html) / [`docs/versions`](./docs/versions.html) | Step-by-step evolutionary milestones across 9 versions |
 
-```text
+---
+
+## 📖 The Story: The Conveyor Belt
+
+In the **KeshavSoft JSON Transformer** architecture, UI construction is organized by mathematical dimensionality:
+
+```
 ┌──────────────────────────────────────┐
-│  json-transformer-funcs-primitive    │ ◄── Engine 1 (0D): Transforms 1 object into 1 element
+│  json-transformer-funcs-primitive    │ ◄── 0D (The Atom / The Mold):
+│  applyTemplate(inElement, inTemplate)│     Stamps 1 data dictionary into 1 element AST.
 └──────────────────┬───────────────────┘
-                   │ applyTemplate(template, object)
+                   │
+                   ▼ delegates element-level stamping
+┌──────────────────────────────────────┐
+│ json-transformer-funcs-one-dimension │ ◄── 1D (The Conveyor Belt - THIS REPO):
+│ (startFunc / fromCollection)         │     Places an ARRAY of data items on the belt.
+│                                      │     Stamps each sequentially into sibling AST nodes
+└──────────────────┬───────────────────┘     (e.g., <th> headers, <col> tags, <option> tags).
+                   │
                    ▼
 ┌──────────────────────────────────────┐
-│ json-transformer-funcs-one-dimension │ ◄── Engine 2 (1D - THIS REPO): 
-│   (fromCollection / 1D Engine)       │     Maps 1 template over an ARRAY of objects
-└──────────────────┬───────────────────┘     to generate a list of sibling element nodes
-                   │ (e.g. <th>, <col>, <option>)
-                   ▼
-┌──────────────────────────────────────┐
-│ json-transformer-funcs-two-dimensions│ ◄── Engine 3 (2D): Full grid of rows & columns
-└──────────────────────────────────────┘     (<tbody> with nested <tr> and <td>)
+│ json-transformer-funcs-two-dimensions│ ◄── 2D (The Grid / Matrix):
+│ (Rows × Columns Cartesian space)     │     Stamps full tables (<tbody> with <tr> and <td>).
+└──────────────────────────────────────┘
+```
+
+### The Mental Model
+1. **The Conveyor Line (`inSource`)**: A linear stream (array) of dynamic data dictionaries moving down the factory belt.
+2. **The Stamping Die (`inTemplate`)**: The structural blueprint with `${placeholder}` token slots.
+3. **The Emitted Stream (`output`)**: A continuous array of resolved, immutable JSON element nodes (`[ <col>, <col>, ... ]` or `[ <th>, <th>, ... ]`).
+
+```
+  [ Data 1 ] ──► [ Data 2 ] ──► [ Data 3 ]   (inSource Array on Conveyor)
+       │              │              │
+       ▼              ▼              ▼
+ ┌──────────┐   ┌──────────┐   ┌──────────┐
+ │ The Mold │   │ The Mold │   │ The Mold │  (inTemplate stamped via applyTemplate)
+ └──────────┘   └──────────┘   └──────────┘
+       │              │              │
+       ▼              ▼              ▼
+  [ Node 1 ] ─── [ Node 2 ] ─── [ Node 3 ]   (Resolved Sibling AST Array)
 ```
 
 ---
 
-## ⚡ The Heart of the Implementation
+## ⚙️ Two Conveyor Operational Modes
 
-Takes an array of data objects (`inSource`) and a single element template (`inTemplate`).  
-Applies the template once per item and returns the complete array of resolved element nodes:
-
-```javascript
-return inSource.map(element => applyTemplate(inTemplate, element));
-```
-
-- **Pure function**: Zero side effects, fully deterministic.
-- **Preserves length**: `output.length === inSource.length`.
-- **Natural upgrade from the primitive**: Instead of a single element node, you receive a linear collection of siblings.
-
----
-
-## 📦 Install
-
-```bash
-npm install json-transformer-funcs-one-dimension
-```
-
----
-
-## 🚀 Signature & Contract
-
-```javascript
-import fromCollection from "json-transformer-funcs-one-dimension";
-
-const elements = fromCollection(inSource, inTemplate);
-```
-
-| Argument | Type | Description |
-| :--- | :--- | :--- |
-| `inSource` | `Array<Object>` | Non-empty array of plain objects (one per output element) |
-| `inTemplate` | `Object` \| `String` | The element shape with `${placeholder}` substitution slots |
-
-**Returns:** `Array<Object>` — an array of resolved element nodes, one per source item.
-
-### Strict Guards (Throws on violation)
-- `inSource` must be a non-empty array.
-- Every item in `inSource` must be a plain object.
-- `inTemplate` must be an object or string.
-
----
-
-## 💡 Practical Examples
-
-### 1. Table Headers (`<th>`) from Column Metadata
+### 1. Uniform Conveyor (`default` / `fromCollection`)
+Every item passing down the conveyor is stamped using the **same identical template**:
 
 ```javascript
 import fromCollection from "json-transformer-funcs-one-dimension";
@@ -113,76 +86,135 @@ const template = {
 };
 
 const headers = fromCollection(columns, template);
-/*
-[
-  { tagName: "th", textContent: "itemName" },
-  { tagName: "th", textContent: "baseUnit" },
-  { tagName: "th", textContent: "batches" }
-]
-*/
+// Returns 3 <th> element nodes
 ```
 
-### 2. Table Column Specifications (`<col>`)
+### 2. Polymorphic Conveyor (`loopWithIndividualTemplate`)
+Each item travelling on the conveyor carries **its own template specification key**, allowing diverse element shapes on a single conveyor pass:
 
+```javascript
+import { loopWithIndividualTemplate } from "json-transformer-funcs-one-dimension";
+
+const items = [
+  { label: "Search", customMold: { tagName: "input", attributes: { placeholder: "Search..." } } },
+  { label: "Submit", customMold: { tagName: "button", textContent: "Submit", attributes: { class: "btn-primary" } } }
+];
+
+const elements = loopWithIndividualTemplate(items, "customMold");
+// Returns [<input>, <button>] tailored per item
+```
+
+---
+
+## 📦 Installation
+
+```bash
+npm install json-transformer-funcs-one-dimension
+```
+
+### Browser CDN (ES Module)
+
+```html
+<script type="module">
+  import fromCollection, { loopWithIndividualTemplate } from "https://keshavsoft.github.io/json-transformer-funcs-one-dimension/dist/v9/min.js";
+</script>
+```
+
+---
+
+## 🚀 API Signature & Contract
+
+```javascript
+import fromCollection, { loopWithIndividualTemplate } from "json-transformer-funcs-one-dimension";
+
+// Uniform mapping:
+const elements = fromCollection(inSource, inTemplate);
+
+// Polymorphic mapping:
+const elements = loopWithIndividualTemplate(inSource, inTemplateKey);
+```
+
+### Parameters
+
+| Argument | Type | Description |
+| :--- | :--- | :--- |
+| `inSource` | `Array<Object>` | Non-empty array of plain objects to pass down the conveyor. |
+| `inTemplate` | `Object` \| `String` | The element blueprint with `${placeholder}` substitution slots. |
+| `inTemplateKey` | `String` | Property name on each element containing its individual template. |
+
+### Guarantees & Guards
+- **Strict Validation**: Throws if `inSource` is not a non-empty Array, or if items are not plain objects.
+- **Pure Function**: Zero side effects, complete immutability.
+- **Preserves Length**: `output.length === inSource.length`.
+
+---
+
+## 💡 Practical Real-World Examples
+
+### 1. Table Headers (`<th>`)
 ```javascript
 const columns = [
-  { columnName: "itemName", width: "300px" },
-  { columnName: "baseUnit", width: "200px" }
+  { columnName: "itemName" },
+  { columnName: "baseUnit" },
+  { columnName: "batches" }
 ];
 
-const template = {
+const headers = fromCollection(columns, {
+  tagName: "th",
+  textContent: "${columnName}"
+});
+```
+
+### 2. Colgroup Column Tags (`<col>`)
+```javascript
+const columns = [
+  { width: "250px" },
+  { width: "120px" },
+  { width: "80px" }
+];
+
+const cols = fromCollection(columns, {
   tagName: "col",
   attributes: { width: "${width}" }
-};
-
-const cols = fromCollection(columns, template);
-/*
-[
-  { tagName: "col", attributes: { width: "300px" } },
-  { tagName: "col", attributes: { width: "200px" } }
-]
-*/
+});
 ```
 
-### 3. Dropdown Selection Options (`<option>`)
-
+### 3. Dropdown Options (`<option>`)
 ```javascript
-const items = [
-  { rowValue: "Cash", label: "Cash Account" },
-  { rowValue: "Bank", label: "Bank Account" },
-  { rowValue: "Sales", label: "Sales Revenue" }
+const accounts = [
+  { id: "A101", label: "Cash Account" },
+  { id: "A102", label: "Bank Account" }
 ];
 
-const template = {
+const options = fromCollection(accounts, {
   tagName: "option",
   textContent: "${label}",
-  attributes: { value: "${rowValue}" }
-};
-
-const options = fromCollection(items, template);
-/*
-[
-  { tagName: "option", textContent: "Cash Account",  attributes: { value: "Cash"  } },
-  { tagName: "option", textContent: "Bank Account",  attributes: { value: "Bank"  } },
-  { tagName: "option", textContent: "Sales Revenue", attributes: { value: "Sales" } }
-]
-*/
+  attributes: { value: "${id}" }
+});
 ```
 
-`<col>`, `<th>`, `<option>`, `<li>` — all produced by the same pure function. The only difference is the template definition and the incoming data.
+---
+
+## 🕹️ Modern Monaco Studio v1
+
+Explore the modern **Monaco Studio v1** inside [`docs/monaco/v1/`](./docs/monaco/v1/index.html):
+- **50/50 Dual-Pane Split**: Monaco Editor on the left, live interactive DOM stage on the right.
+- **Synchronized Models**: Instant tab switching between `base.json`, `columns.json`, `template.json`, and `output.json`.
+- **Target Container Dropdown**: Dynamically inject rendered AST elements into `#renderOutput` or specific DOM container IDs.
+- **Declarative Actions**: Powered by `dom-primitive-bindings` and `bindings.json`.
 
 ---
 
 ## 🔗 The JSON Transformer Family
 
-- **0D (Primitive)**: [`json-transformer-funcs-primitive`](https://www.npmjs.com/package/json-transformer-funcs-primitive) — 1 object to 1 element node.
-- **1D (Collection - This Repo)**: [`json-transformer-funcs-one-dimension`](https://www.npmjs.com/package/json-transformer-funcs-one-dimension) — Array of objects to a linear list of element nodes.
-- **2D (Grid)**: [`json-transformer-funcs-two-dimensions`](https://www.npmjs.com/package/json-transformer-funcs-two-dimensions) — Full matrix grids (rows $\times$ columns).
-- **Wiring Layer**: [`dom-primitive-bindings`](https://www.npmjs.com/package/dom-primitive-bindings) — Declarative event delegation powered by `bindings.json`.
-- **Suite Orchestrator**: [`json-transformer-funcs`](https://www.npmjs.com/package/json-transformer-funcs) — All engines working together as a unified system.
+- **0D (The Atom)**: [`json-transformer-funcs-primitive`](https://www.npmjs.com/package/json-transformer-funcs-primitive) — Single object to single element node.
+- **1D (The Conveyor - This Repo)**: [`json-transformer-funcs-one-dimension`](https://www.npmjs.com/package/json-transformer-funcs-one-dimension) — Array of objects mapped into a linear stream of sibling element nodes.
+- **2D (The Matrix)**: [`json-transformer-funcs-two-dimensions`](https://www.npmjs.com/package/json-transformer-funcs-two-dimensions) — 2D Cartesian grid mapping (rows × columns into tables).
+- **Execution Runtime**: [`json-renderers-run-instructions`](https://www.npmjs.com/package/json-renderers-run-instructions) — Universal instruction dispatcher and registry runner.
+- **Event Delegation**: [`dom-primitive-bindings`](https://www.npmjs.com/package/dom-primitive-bindings) — Declarative event delegation using `bindings.json`.
 
 ---
 
 ## 📄 License
 
-[MIT](https://opensource.org/licenses/MIT) &copy; KeshavSoft
+MIT &copy; [KeshavSoft](https://github.com/keshavsoft)

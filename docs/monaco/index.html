@@ -1,0 +1,231 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Monaco Workspaces Hub — json-transformer-funcs-one-dimension</title>
+  <script>
+    if (!location.pathname.endsWith('/') && !location.pathname.endsWith('.html')) {
+      location.replace(location.pathname + '/' + location.search + location.hash);
+    }
+  </script>
+  <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css" rel="stylesheet">
+  <link href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.11.3/font/bootstrap-icons.min.css" rel="stylesheet">
+  <style>
+    :root {
+      --brand-primary: #1d4ed8;
+      --brand-accent: #0284c7;
+      --brand-dark: #0f172a;
+      --bg-page: #f8fafc;
+      --card-border: #e2e8f0;
+    }
+
+    body {
+      background-color: var(--bg-page);
+      color: #334155;
+      font-family: system-ui, -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, sans-serif;
+      line-height: 1.65;
+    }
+
+    .hero-banner {
+      background: linear-gradient(135deg, #0f172a 0%, #1e3a8a 50%, #0284c7 100%);
+      color: #ffffff;
+      padding: 56px 0 48px 0;
+      margin-bottom: 40px;
+    }
+
+    .playground-card {
+      background: #ffffff;
+      border: 1px solid var(--card-border);
+      border-radius: 14px;
+      transition: all 0.22s ease-in-out;
+      display: flex;
+      flex-direction: column;
+      height: 100%;
+      box-shadow: 0 2px 8px rgba(15, 23, 42, 0.04);
+      position: relative;
+      overflow: hidden;
+    }
+
+    .playground-card:hover {
+      transform: translateY(-4px);
+      box-shadow: 0 14px 30px rgba(15, 23, 42, 0.1);
+      border-color: #38bdf8;
+    }
+
+    .playground-card.active-card {
+      border: 2px solid #2563eb;
+      background: linear-gradient(180deg, #ffffff 0%, #eff6ff 100%);
+    }
+
+    .version-badge-lg {
+      font-size: 2rem;
+      font-weight: 800;
+      line-height: 1;
+      letter-spacing: -0.04em;
+    }
+  </style>
+</head>
+
+<body>
+
+  <!-- Hero Header -->
+  <header class="hero-banner shadow-sm">
+    <div class="container" style="max-width: 1080px;">
+      <div class="d-flex align-items-center justify-content-between flex-wrap gap-4">
+        <div>
+          <div class="d-inline-flex align-items-center gap-2 mb-2 px-3 py-1 rounded-pill bg-white bg-opacity-10 text-white border border-white border-opacity-20 small">
+            <i class="bi bi-conveyor-belt"></i>
+            <span>The Conveyor Belt &bull; json-transformer-funcs-one-dimension</span>
+          </div>
+          <h1 class="display-5 fw-bold mb-2">Monaco Workspaces Hub</h1>
+          <p class="lead mb-0 text-white text-opacity-75" style="max-width: 680px;">
+            Full-screen interactive Monaco Editor workspaces for 1D linear collection transformation (arrays into sibling AST element nodes) with live DOM preview.
+          </p>
+        </div>
+
+        <div class="d-flex flex-wrap gap-2">
+          <a href="../index.html" class="btn btn-outline-light px-3 py-2">
+            <i class="bi bi-arrow-left me-1"></i> The Story (Docs)
+          </a>
+          <a href="../architecture.html" class="btn btn-outline-light px-3 py-2">
+            <i class="bi bi-diagram-3 me-1"></i> Architecture
+          </a>
+          <a href="https://www.npmjs.com/package/json-transformer-funcs-one-dimension" target="_blank" class="btn btn-outline-light px-3 py-2">
+            <i class="bi bi-box-seam me-1"></i> npm Package
+          </a>
+        </div>
+      </div>
+    </div>
+  </header>
+
+  <!-- Main Content -->
+  <main class="container pb-5" style="max-width: 1080px;">
+
+    <!-- Flagship Feature Card: Monaco v1 Studio -->
+    <div class="card border-0 shadow-lg p-4 mb-5 text-white" style="background: linear-gradient(135deg, #090d16 0%, #1e3a8a 50%, #0284c7 100%); border-radius: 16px;">
+      <div class="d-flex align-items-center justify-content-between flex-wrap gap-3">
+        <div>
+          <div class="d-inline-flex align-items-center gap-2 mb-2 px-3 py-1 rounded-pill bg-primary bg-opacity-25 text-primary-emphasis border border-primary border-opacity-30 small fw-bold">
+            <i class="bi bi-stars text-warning"></i>
+            <span class="text-white">Flagship Workspace &bull; Version 1</span>
+          </div>
+          <h2 class="h3 fw-bold text-white mb-2">v1: 1D Collection 50/50 Dual-Pane Studio</h2>
+          <p class="text-white text-opacity-80 small mb-3" style="max-width: 740px;">
+            Vertical 50/50 split workspace: Monaco Editor on the left with synchronized tabs (<code>base.json</code>, <code>columns.json</code>, <code>template.json</code>, <code>output.json</code>), center <strong>[build]</strong> and <strong>[render]</strong> triggers with target container ID selection, and the live DOM rendering stage on the right!
+          </p>
+          <div class="d-flex flex-wrap gap-2">
+            <span class="badge bg-white bg-opacity-10 text-white border border-white border-opacity-20"><i class="bi bi-columns text-info me-1"></i> 4-Tab JSON Editor</span>
+            <span class="badge bg-white bg-opacity-10 text-white border border-white border-opacity-20"><i class="bi bi-bullseye text-warning me-1"></i> Target Dropdown</span>
+            <span class="badge bg-white bg-opacity-10 text-white border border-white border-opacity-20"><i class="bi bi-play-fill text-success me-1"></i> One-Click Render</span>
+            <span class="badge bg-white bg-opacity-10 text-white border border-white border-opacity-20"><i class="bi bi-display text-primary me-1"></i> Live DOM Stage</span>
+          </div>
+        </div>
+        <div>
+          <a href="./v1/" class="btn btn-primary fw-bold px-4 py-3 shadow-lg fs-6">
+            <i class="bi bi-play-circle-fill me-2 fs-5"></i> Launch Monaco v1
+          </a>
+        </div>
+      </div>
+    </div>
+
+    <!-- Hub Cards Grid -->
+    <div class="row g-4 mb-5">
+
+      <!-- Monaco Studio Card -->
+      <div class="col-md-6">
+        <div class="playground-card active-card p-4">
+          <div class="d-flex align-items-center justify-content-between mb-3">
+            <span class="badge bg-primary">Modern Monaco Studio</span>
+            <span class="text-primary fw-bold small">v1 Studio</span>
+          </div>
+          <div class="d-flex align-items-baseline gap-2 mb-2">
+            <div class="version-badge-lg text-primary">v1</div>
+            <div class="fw-semibold text-dark">50/50 Dual-Pane Workspace</div>
+          </div>
+          <p class="small text-secondary mb-3 flex-grow-1">
+            Complete Monaco editor paired with live DOM preview. Load column specs, apply 1D collection templates, and render live into targeted DOM elements using declarative bindings.
+          </p>
+          <a href="./v1/" class="btn btn-primary fw-bold w-100 py-2 shadow-sm">
+            Launch Monaco Studio v1 <i class="bi bi-arrow-right ms-1"></i>
+          </a>
+        </div>
+      </div>
+
+      <!-- Legacy Playgrounds Card -->
+      <div class="col-md-6">
+        <div class="playground-card p-4">
+          <div class="d-flex align-items-center justify-content-between mb-3">
+            <span class="badge bg-secondary">Evolutionary Archive</span>
+            <span class="text-muted small">v1 – v9</span>
+          </div>
+          <div class="d-flex align-items-baseline gap-2 mb-2">
+            <div class="version-badge-lg text-dark">v1–v9</div>
+            <div class="fw-semibold text-secondary">Historical Generations Hub</div>
+          </div>
+          <p class="small text-secondary mb-3 flex-grow-1">
+            Browse the step-by-step architectural evolution across 9 iterations: from modular imperative handlers to declarative <code>bindings.json</code> and CDN runtime integration.
+          </p>
+          <a href="../versions.html" class="btn btn-outline-secondary fw-bold w-100 py-2">
+            Browse Versions Hub (v1–v9) <i class="bi bi-arrow-right ms-1"></i>
+          </a>
+        </div>
+      </div>
+
+    </div>
+
+    <!-- Navigation Hub Card -->
+    <div class="card border-0 bg-white shadow-sm p-4 rounded-3 text-center">
+      <div class="d-flex flex-wrap align-items-center justify-content-between gap-3 text-start">
+        <div>
+          <h3 class="h6 fw-bold mb-1">Want to learn more about the 1D Conveyor Engine?</h3>
+          <p class="small text-muted mb-0">Explore our comprehensive documentation on linear transformation, uniform vs. individual templates, and cardinality.</p>
+        </div>
+        <div class="d-flex gap-2">
+          <a href="../index.html" class="btn btn-sm btn-outline-primary">The Conveyor Story</a>
+          <a href="../architecture.html" class="btn btn-sm btn-outline-secondary">Architecture Guide</a>
+          <a href="https://www.npmjs.com/package/json-transformer-funcs-one-dimension" target="_blank" class="btn btn-sm btn-outline-danger">npm Package</a>
+        </div>
+      </div>
+    </div>
+
+  </main>
+
+  <!-- Footer -->
+  <footer class="border-top py-4 bg-white text-muted">
+    <div class="container d-flex align-items-center justify-content-between flex-wrap gap-2" style="max-width: 1080px; font-size: 0.875rem;">
+      <div>
+        <strong>json-transformer-funcs-one-dimension</strong> &bull; Built by <a href="https://github.com/keshavsoft" target="_blank" class="text-decoration-none text-dark fw-semibold">KeshavSoft</a>
+      </div>
+      <div class="d-flex flex-wrap gap-3">
+        <a href="./v1/" class="text-decoration-none text-primary fw-bold">Monaco v1</a>
+        <a href="../versions.html" class="text-decoration-none text-muted">Legacy Hub (v1–v9)</a>
+        <a href="../architecture.html" class="text-decoration-none text-muted">Architecture</a>
+        <a href="../index.html" class="text-decoration-none text-muted">The Story (Docs)</a>
+        <a href="https://www.npmjs.com/package/json-transformer-funcs-one-dimension" target="_blank" class="text-decoration-none text-danger fw-semibold">npm</a>
+        <a href="https://github.com/keshavsoft/json-transformer-funcs-one-dimension" target="_blank" class="text-decoration-none text-muted">GitHub</a>
+      </div>
+    </div>
+  </footer>
+
+  <script>
+    document.addEventListener('click', (event) => {
+      const anchor = event.target.closest('a[href]');
+      if (!anchor) return;
+      const href = anchor.getAttribute('href');
+      if (!href || href.startsWith('http://') || href.startsWith('https://') || href.startsWith('//') || href.startsWith('#') || href.startsWith('/')) {
+        return;
+      }
+      if (!location.pathname.endsWith('/') && !location.pathname.endsWith('.html')) {
+        event.preventDefault();
+        const baseDir = location.origin + location.pathname + '/';
+        const targetUrl = new URL(href, baseDir);
+        window.location.href = targetUrl.href;
+      }
+    });
+  </script>
+</body>
+
+</html>
+
